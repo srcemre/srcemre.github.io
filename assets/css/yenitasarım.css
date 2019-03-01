@@ -1,0 +1,130 @@
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: rgb(25, 30, 42);
+    background-image: url('/assets/img/space.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Courier New", Courier, monospace;
+    position: relative;
+    color: white;
+  }
+  .afirst{
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+    text-decoration-line: none;
+    text-decoration: none;
+  }
+  .bgimg {
+    background-image: url('/assets/img/space.png');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+  }
+  
+  .topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+  }
+  
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
+  
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .avatar{
+      width: 150px;
+      height: auto;
+      margin: auto;
+  }
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+ 
+
+  blockquote {
+    color: #828282;
+    border-left: 4px solid orange;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic; }
+    blockquote > :last-child {
+      margin-bottom: 0; }
+  pre,
+  code {
+    font-size: 15px;
+    border: 1px solid rgb(248, 244, 244);
+    color:rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 3px;
+     }
+  code {
+    padding: 1px 5px; 
+    }
+  pre {
+    padding: 8px 12px;
+    overflow-x: auto; }
+  pre > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0; 
+    
+  }
+
+  a{
+    color: orange;
+  }
+  a:visited{
+    color: orange;
+  }
+    .menulink{
+      text-decoration-line: none;
+      float: left;
+      display: block;
+      font-size: 15pt;
+      padding: 5pt;
+      text-align: center;
+      color:orange
+    }
+    a:visited{
+      color:tomato;
+    }
+    a:hover {
+      color: red;
+      font-weight: bold;
+      text-decoration-line: none;
+    }
+    .htitle{
+      color: white;
+      font-weight: bolder;
+      padding:20pt;
+      font-size: 200%;
+    }
+    .htitle:visited{
+      color: white;
+    }
+
+    .imgs {
+        border-radius: 60%;
+        display: block;
+        float: left;
+        margin: 10px;
+    }

@@ -1,0 +1,40 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+      <h2 class="footer-heading">{{ site.title | escape }}</h2>
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if site.author -%}
+              {{ site.author | escape }}
+            {%- else -%}
+              {{ site.title | escape }}
+            {%- endif -%}
+            </li>
+            {%- if site.email -%}
+            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="footer-col one-half">
+          {{ site.author | escape }}-Powered by Jekyll.
+        <div class="btn-github" style="float:right;">
+            <iframe src="https://ghbtns.com/github-btn.html?user=srcemre&repo=srcemre.github.io&type=star&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=srcemre&repo=srcemre.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
+        </div>
+      </div>
+
+      <div class="social-links">
+        {%- include social.html -%}
+      </div>
+
+      
+    </div>
+
+  </div>
+
+</footer>

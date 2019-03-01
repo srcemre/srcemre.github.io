@@ -65,10 +65,3 @@ git push -u origin master
 ``` 
 `git push -u origin master` kodunu çalıştırdıktan sonra Github kullanıcı adı ve şifresinizi isteyecek. Kullanıcı adı ve şifrenizi girdikten sonra yükleme işleminiz gerçekleşecektir. Blog sayfanıza **https://kullanıcıadı.github.io** adresinizden ulaşabilirsiniz.
 
----
-
-<a href="{{ site.github }}">{{ site.github }}</a> - Powered by Jekyll.
-<div class="btn-github" style="float:right;">
-    <iframe src="https://ghbtns.com/github-btn.html?user=srcemre&repo=srcemre.github.io&type=star&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
-    <iframe src="https://ghbtns.com/github-btn.html?user=srcemre&repo=srcemre.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
-</div>
