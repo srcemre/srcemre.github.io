@@ -1,5 +1,5 @@
 ---
 layout: home
-title: AnaSayfa
+title: Blog
 permalink: /home/
 ---
