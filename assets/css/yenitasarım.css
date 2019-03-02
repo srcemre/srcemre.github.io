@@ -14,7 +14,7 @@ body, html {
   .afirst{
     color: white;
     font-family: "Courier New", Courier, monospace;
-    font-size: 35px;
+    font-size: 30px;
     text-decoration-line: none;
     text-decoration: none;
   }
@@ -28,7 +28,7 @@ body, html {
     position: relative;
     color: white;
     font-family: "Courier New", Courier, monospace;
-    font-size: 35px;
+    font-size: 30px;
   }
   
   .topleft {
@@ -51,7 +51,7 @@ body, html {
     text-align: center;
   }
   .avatar{
-      width: 250px;
+      width: 225px;
       height: auto;
       margin: auto;
   }
