@@ -1,5 +1,6 @@
 # srcemre.github.io
 My blog: https://srcemre.github.io/
+My blog: https://emresarac.com.tr/
 ## Jekyll
 [Jekyll](https://jekyllrb.com "Jekyll.com") açık kaynak kodlu, MIT lisanslı, Ruby dili ile yazılmış statik site oluşturucu yazılım.
 [DOCS](https://jekyllrb.com/docs/ "Jekyll Docs")
