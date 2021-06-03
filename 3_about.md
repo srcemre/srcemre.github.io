@@ -7,8 +7,8 @@ permalink: /about/
 <div style="font-style:bold;font-size:13pt">
 <img class="imgs" src="/assets/img/avatar.jpg" alt="Avatar" style="width:100px">
 
-<p>EMRE SARAC<br>Student | <font color="green">Karabuk</font> University<br>Computer Engineering
-<br><font size="3">e.sarac[at]outlook.com</font>
+<p>EMRE SARAC<br><font color="green">Karabuk</font> University<br>Computer Engineering
+<br><font size="3">---[at]outlook.com</font>
 </p><div><BR>
 
 &copy; {{ site.author }}
