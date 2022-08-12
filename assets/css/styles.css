@@ -409,6 +409,31 @@ header .mouse::before{
     font-size: 14px;
 }
 
+/* Guestbook Section */
+.guestbook p {
+	margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.guestbook .button-links a {
+	background-color: #e98724;
+    border: 2px solid gray;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 0.2rem 1rem;
+    border: 0;
+	border-radius: 0.317rem;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 20px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+}
+.guestbook .button-links a:hover {
+	opacity: 50%;
+}
 
 /* About Section */
 .about a{
