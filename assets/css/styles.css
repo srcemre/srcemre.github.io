@@ -205,8 +205,8 @@ a.dotted-link:hover {
 .header .vertical-center {
     position: absolute;
     top: 50%;
-    left: 15%;
-    right: 15%;
+    left: 12%;
+    right: 12%;
     -ms-transform: translate(0%, -60%);
     transform: translate(0%, -60%);
     animation: hide-scroll 1.4s backwards;
@@ -1113,7 +1113,7 @@ section.blogs.section {
     .header .profile-image-container {
         float: none !important;
         margin: 0 auto;
-        width: 60%;
+        width: 50%;
     }
 
     .header .profile-content {
