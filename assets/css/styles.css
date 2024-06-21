@@ -464,15 +464,15 @@ header .mouse::before {
 
 .box1 {
     position: absolute;
-    top: -15px;
-    left: 70px;
+    top: 50px;
+    right: -24px;
     width: 100%;
     height: 100%;
     text-align: right;
 }
 
 .guestbook .guestbook-logo {
-    width: 170px;
+    width: 80px;
     height: auto;
 
 }
