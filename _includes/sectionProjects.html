@@ -2,56 +2,50 @@
     <div class="section-inner">
         <h2 class="heading">Recent Projects</h2>
         <div class="content">
+
+            {% assign sorted_projects = site.projects | sort: 'number' | reverse %}
+            {% for project in sorted_projects limit:5 %}
             <!-- item -->
             <div class="item">
-                <div class="logo">
-                    <i class="fa fa-mobile" aria-hidden="true"></i>
-                </div>
-                <div class="title"> Dash Cam Star - 
-                    <i class="fa fa-android" aria-hidden="true"></i> 
+                <div class="title"> {{ project.title }}
+                    {% for tags in project.tags %}
+                    {% for tag in tags %}
+                    {% if tag == 'android' %}
+                    <i class="fa fa-android" aria-hidden="true"></i>
+                    {% endif %}
+                    {% if tag == 'ios' %}
                     <i class="fa fa-apple" aria-hidden="true"></i>
+                    {% endif %}
+                    {% if tag == 'desktop' %}
+                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+
+
                 </div>
                 <p class="summary">
-                    This application allows users to use their mobile device as a dash cam.
-                    It is also to detect city objects while recording the video image of the road while driving by the user.
+                    {{ project.description }}
                 </p>
                 <div class="button-links">
-                    <a class="youtube"
-                    href="https://www.youtube.com/watch?v=L46uaFFpQ5I"
-                    target="_blank"><i class="fa fa-youtube-play"></i> YouTube</a>
+                    {% if project.web %}
+                    {% endif %}
+                    {% if project.github %}
+                    <a class="github" href="{{ project.github }}" alt="Github - {{ project.github }}" target="_blank"><i
+                            class="fa fa-github-square"></i> GitHub</a>
+                    {% endif %}
+                    {% if project.youtube %}
+
+                    <a class="youtube" href="{{ project.youtube }}" target="_blank"><i class="fa fa-youtube-play"></i>
+                        YouTube</a>
+                    {% endif %}
                 </div>
-                <hr class="divider">
             </div>
             <!-- //item -->
-            <!-- item -->
-            <div class="item">
-                <div class="logo">
-                    <i class="fa fa-laptop" aria-hidden="false"></i>
-                </div>
-                <div class="title"> Video Referee Training Application - 
-                    <i class="fa fa-desktop" aria-hidden="true"></i> 
-                </div>
-                <p class="summary">
-                    Detection of the referee in the field and instant distance to the ball and heat map analysis 
-                    using image processing techniques. <a target="_blank" href="https://www.tubitak.gov.tr/en/scholarship/undergraduatesgraduates/national-programmes/content-2209-a-research-project-support-programme-for-undergraduate-students">(Supported by TUBITAK 2209-A program.)</a>
-                </p>
-                <div class="button-links">             
-                    <a class="github"
-                        href="https://github.com/srcemre/VideoHakemEgitimiUygulamasi"
-                        alt="Github - Video Referee Training Application"
-                        target="_blank"><i class="fa fa-github-square"></i> GitHub</a>
-                        <a class="youtube"
-                            href="https://www.youtube.com/watch?v=ZnUz9f50pUc"
-                            alt="YouTube - Video Referee Training Application"
-                            target="_blank"><i class="fa fa-youtube-play"></i> YouTube</a>
-                </div>
-                <hr class="divider">
-            </div>
+            {% endfor %}
         </div>
         <!--//content-->
     </div>
     <!--//section-inner-->
 </section>
 <!--//section-->
-
-

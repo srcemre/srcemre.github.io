@@ -1,20 +1,19 @@
 ---
 layout: default
 ---
+{%- include header.html -%}
 <div class="container sections-wrapper">
     <div class="row">
         <div class="primary col-sm-12">
         </div>
         <div class="primary col-md-8 col-sm-12 col-xs-12">
             {%- include sectionAbout.html -%}
-            {%- include sectionExperience.html -%}
+            {%- include sectionBlog.html -%}
             {%- include sectionProjects.html -%}
         </div>
         <!--//primary-->
         <div class="secondary col-md-4 col-sm-12 col-xs-12">
-            {%- include asideTestimonials.html -%}
             {%- include asideGuestbook.html -%}
-            {%- include asideMusic.html -%}
             {%- include asideCredit.html -%}
         </div>
         <!--//secondary-->
@@ -22,3 +21,4 @@ layout: default
     <!--//row-->
 </div>
 <!--//masonry-->
+{%- include footer.html -%}

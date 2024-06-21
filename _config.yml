@@ -29,10 +29,20 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+paginate: 5 # Sayfa başına gösterilecek yazı sayısı
+paginate_path: "/page:num/"
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-watch
+  
+collections:
+  projects:
+    output: true
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
