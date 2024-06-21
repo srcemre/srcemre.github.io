@@ -466,13 +466,14 @@ header .mouse::before {
     position: absolute;
     top: 50px;
     right: -24px;
-    width: 100%;
+    width: auto;
     height: 100%;
     text-align: right;
+    overflow: hidden;
 }
 
 .guestbook .guestbook-logo {
-    width: 80px;
+    width: 70px;
     height: auto;
 
 }
