@@ -2,7 +2,7 @@
 
 Welcome to the **srcemre.github.io** repository!
 
-This repository hosts [my personal blog site](https://www.emresarac.com.tr) , created using Jekyll. Here, you can find a collection of my experiences, latest projects, and insightful blog posts.
+This repository hosts [my personal blog site](https://emresarac.com.tr) , created using Jekyll. Here, you can find a collection of my experiences, latest projects, and insightful blog posts.
 
 ## Technologies Used
 
