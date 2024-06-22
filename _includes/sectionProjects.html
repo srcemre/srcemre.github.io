@@ -19,6 +19,9 @@
                     {% if tag == 'desktop' %}
                     <i class="fa fa-desktop" aria-hidden="true"></i>
                     {% endif %}
+                    {% if tag == 'web' %}
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    {% endif %}
                     {% endfor %}
                     {% endfor %}
 
@@ -35,10 +38,22 @@
                             class="fa fa-github-square"></i> GitHub</a>
                     {% endif %}
                     {% if project.youtube %}
-
                     <a class="youtube" href="{{ project.youtube }}" target="_blank"><i class="fa fa-youtube-play"></i>
                         YouTube</a>
                     {% endif %}
+                    {% if project.chrome %}
+                    <a class="globe" href="{{ project.chrome }}" target="_blank"><i class="fa fa-globe"></i>
+                        Chrome Store</a>
+                    {% endif %}
+                    {% if project.playStore %}
+                    <a class="playStore" href="{{ project.playStore }}" target="_blank"><i class="fa fa-android"></i>
+                        Play Store</a>
+                    {% endif %}
+                    {% if project.appStore %}
+                    <a class="appStore" href="{{ project.appStore }}" target="_blank"><i class="fa fa-apple"></i>
+                        App Store</a>
+                    {% endif %}
+                    
                 </div>
             </div>
             <!-- //item -->

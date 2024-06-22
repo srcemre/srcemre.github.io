@@ -824,6 +824,18 @@ section.blogs.section {
     background-color: #ff4911;
     color: white;
 }
+.projects .button-links .globe {
+    background-color: #4285f4;
+    color: white;
+}
+.projects .button-links .playStore {
+    background-color: #A4C639;
+    color: rgb(0, 90, 95);
+}
+.projects .button-links .appStore {
+    background-color: #ffffff;
+    color: black;
+}
 
 .projects .divider {
     border-top: 1px solid rgb(255, 168, 82);
@@ -1129,6 +1141,16 @@ section.blogs.section {
 
     .project-image {
         margin-bottom: 15px;
+    }
+    .projects .item {
+        font-size: 12px;
+    }
+    
+    .projects .item .title {
+        font-size: 15px;
+    }
+    .projects .button-links {
+        font-size: 12px;
     }
 }
 
