@@ -29,7 +29,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
-google_analytics: G-7WW2625SN6
+google_analytics: G-BYQQZ9ZZ32
 paginate: 5 # Sayfa başına gösterilecek yazı sayısı
 paginate_path: "/page:num/"
 
