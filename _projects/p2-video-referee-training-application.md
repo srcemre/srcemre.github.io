@@ -9,7 +9,7 @@ description: Detection of the referee in the field and instant distance to the b
 number: 1
 date: 2024-06-11
 
-youtube: https://www.youtube.com/watch?v=ZnUz9f50pUc
+youtube: https://www.youtube.com/watch?v=7r8jc8ZQWUc
 github: https://github.com/srcemre/VideoHakemEgitimiUygulamasi
 web:
 ---
