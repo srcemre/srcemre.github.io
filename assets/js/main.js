@@ -1,13 +1,13 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
 
     /*======= Skillset *=======*/
 
     $('.level-bar-inner').css('width', '0');
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
 
-        $('.level-bar-inner').each(function() {
+        $('.level-bar-inner').each(function () {
 
             var itemWidth = $(this).data('level');
 
@@ -20,19 +20,33 @@ jQuery(document).ready(function($) {
     });
 
 
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (event) {
+                let url = this.href;
+                gtag('event', 'click', {
+                    'event_category': 'Outbound Links',
+                    'event_label': url
+                });
+            });
+        });
+    });
 
-//     $(document).scroll(function() {
 
-//         var n =  $(window).scrollTop()
-//         var alpha = 0.1 - (($(window).scrollTop() / 100) * 0.1)
-//         var blur = 5 - (($(window).scrollTop() / 200) * 5)
-//         if(blur >= 0){
-//             $("#header").css("background-color",'rgba(255, 255, 255,'+ alpha +')');
-//             $("#header").css("backdrop-filter",'blur('+blur+'px)');
-//         }else{
-//             $("#header").css("backdrop-filter",'blur('+0+'px)');
-//         }
-//  });
+
+
+    //     $(document).scroll(function() {
+
+    //         var n =  $(window).scrollTop()
+    //         var alpha = 0.1 - (($(window).scrollTop() / 100) * 0.1)
+    //         var blur = 5 - (($(window).scrollTop() / 200) * 5)
+    //         if(blur >= 0){
+    //             $("#header").css("background-color",'rgba(255, 255, 255,'+ alpha +')');
+    //             $("#header").css("backdrop-filter",'blur('+blur+'px)');
+    //         }else{
+    //             $("#header").css("backdrop-filter",'blur('+0+'px)');
+    //         }
+    //  });
 
     /* Bootstrap Tooltip for Skillset */
     $('.level-label').tooltip();
