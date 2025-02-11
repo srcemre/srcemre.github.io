@@ -1,58 +1,90 @@
 <section class="blogs section" id="blog">
     <div class="section-inner">
         <div class="header-container">
-            <h2 class="heading">My Recent Blog</h2>
+            <!-- <h1 class="heading">Blog & Resources</h1> -->
+            <p class="description"><strong>"A programmer is never late, nor is he early, he arrives precisely when he
+                    means to." – Gandalf.</strong><br> Welcome to my blog, where I write about tech, software, and
+                random adventures!</p>
             <!--<h2 class="seeall"><a href="">See All</a></h2>-->
         </div>
         <div class="content">
-
             {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-            {% for post in sorted_posts limit:5 %}
-            <!-- item -->
-            <div class="item">
-                <div class="blog-picture">
-                    {% if post.thumbnail %}
-                    <img class="blog-img" src="{{ site.baseurl }}/assets/images/logo/{{ post.thumbnail }}"
-                        alt="{{ post.thumbnail }}" />
-                    {% else %}
-                    <img class="blog-img" src="{{ site.baseurl }}/assets/images/logo/content.png" alt="content.png" />
-                    {% endif %}
+            <div class="row">
+                {% for post in sorted_posts limit:6 %}
+                <div
+                    class="col-lg-4 col-md-6 col-sm-12 animate grid__post load-more-item {% if forloop.index > 3 %}hidden{% endif %}">
+                    <article class="card">
+                        <a href="{{ post.url }}" class="card-link">
+                            <div class="blog-picture">
+                                {% if post.thumbnail %}
+                                <img class="img" src="{{ site.baseurl }}/assets/images/thumbnails/{{ post.thumbnail }}"
+                                    alt="{{ post.thumbnail }}" />
+                                {% else %}
+                                <img class="img" src="{{ site.baseurl }}/assets/images/thumbnails/content.png"
+                                    alt="content.png" />
+                                {% endif %}
+
+                                <div class="date-box">
+                                    <span class="date-text">{{ post.date | date: "%b %d, %Y" }}</span>
+                                </div>
+
+                            </div>
+                        </a>
+                        <div class="item-content">
+                            {% if post.tags %}
+                            <div class="tags">
+                                {% for tag in post.tags %}
+                                <a class="tags-link" href="" alt="Read - {{ tag.title }}" target="_blank">{{ tag }}</a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            <h3 class="title"><a href="{{ post.url }}" class="card-link">{{ post.title }}</a></h3>
+
+                            <p class="summary">
+                                <a href="{{ post.url }}" class="card-link">
+                                    {% if post.excerpt_separator %}
+                                    {{ post.excerpt | strip_html }}
+                                    {% else %}
+                                    {{ post.description }}
+                                    {% endif %}
+                                </a>
+                            </p>
+                        </div>
+                    </article>
                 </div>
-                <div class="item-content">
-                    {% if post.tags %}
-                    <div class="tags">
-                        {% for tag in post.tags %}
-                        <a href="" alt="Read - {{ tag.title }}" target="_blank">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    <div class="title"> {{ post.title }} </div>
-                    <p class="date"> {{ post.date }} </p>
-
-                    {% if post.author %}
-                    <p class="author"> <span style="color: red;">@</span>{{ post.author }} </p>
-                    {% endif %}
-
-                    <p class="summary">
-                        {% if post.excerpt_separator %}
-                        {{ post.excerpt | strip_html }}
-                        {% else %}
-                        {{ post.description }}
-                        {% endif %}
-
-                    </p>
-                    <div class="button-links">
-                        <a class="readmore" href="{{ post.url }}" alt="Read - {{ post.title }}" target="_blank">Read
-                            More <i class="fa fa-long-arrow-right "></i></a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-            <!-- //item -->
-            {% endfor %}
-
+            <div class="load-more-wrapper" style="text-align:center; margin-top:20px;">
+                <button id="loadMoreBtn">Load More</button>
+            </div>
         </div>
         <!--//content-->
     </div>
     <!--//section-inner-->
 </section>
 <!--//section-->
+
+<script>
+    document.getElementById('loadMoreBtn').addEventListener('click', function () {
+        var hiddenItems = document.querySelectorAll('.load-more-item.hidden');
+        var count = 0;
+
+        hiddenItems.forEach(function (item) {
+            if (count < 3) { // Her tıklamada 3 öğe göster
+                item.classList.remove('hidden');
+
+                // Kısa bir gecikme ile fade-in efekti ekleyelim
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, 100 * count);
+
+                count++;
+            }
+        });
+
+        if (document.querySelectorAll('.load-more-item.hidden').length === 0) {
+            document.getElementById('loadMoreBtn').style.display = 'none';
+        }
+    });
+</script>

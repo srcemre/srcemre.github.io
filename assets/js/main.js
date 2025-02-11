@@ -21,18 +21,18 @@ jQuery(document).ready(function($) {
 
 
 
-    $(document).scroll(function() {
+//     $(document).scroll(function() {
 
-        var n =  $(window).scrollTop()
-        var alpha = 0.1 - (($(window).scrollTop() / 100) * 0.1)
-        var blur = 5 - (($(window).scrollTop() / 200) * 5)
-        if(blur >= 0){
-            $("#header").css("background-color",'rgba(255, 255, 255,'+ alpha +')');
-            $("#header").css("backdrop-filter",'blur('+blur+'px)');
-        }else{
-            $("#header").css("backdrop-filter",'blur('+0+'px)');
-        }
- });
+//         var n =  $(window).scrollTop()
+//         var alpha = 0.1 - (($(window).scrollTop() / 100) * 0.1)
+//         var blur = 5 - (($(window).scrollTop() / 200) * 5)
+//         if(blur >= 0){
+//             $("#header").css("background-color",'rgba(255, 255, 255,'+ alpha +')');
+//             $("#header").css("backdrop-filter",'blur('+blur+'px)');
+//         }else{
+//             $("#header").css("backdrop-filter",'blur('+0+'px)');
+//         }
+//  });
 
     /* Bootstrap Tooltip for Skillset */
     $('.level-label').tooltip();

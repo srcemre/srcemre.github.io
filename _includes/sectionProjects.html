@@ -1,66 +1,117 @@
 <section class="projects section" id="project">
     <div class="section-inner">
-        <h2 class="heading">Recent Projects</h2>
+        <div class="header-container">
+            <!-- <h1 class="heading">Projects Showcase</h1> -->
+            <p class="description">I present my top-tier projects, meticulously crafted with unwavering passion,
+                simplicity, boundless creativity, and unparalleled attention to detail.</p>
+            <!--<h2 class="seeall"><a href="">See All</a></h2>-->
+        </div>
         <div class="content">
-
             {% assign sorted_projects = site.projects | sort: 'number' | reverse %}
-            {% for project in sorted_projects limit:5 %}
-            <!-- item -->
-            <div class="item">
-                <div class="title"> {{ project.title }}
-                    {% for tags in project.tags %}
-                    {% for tag in tags %}
-                    {% if tag == 'android' %}
-                    <i class="fa fa-android" aria-hidden="true"></i>
-                    {% endif %}
-                    {% if tag == 'ios' %}
-                    <i class="fa fa-apple" aria-hidden="true"></i>
-                    {% endif %}
-                    {% if tag == 'desktop' %}
-                    <i class="fa fa-desktop" aria-hidden="true"></i>
-                    {% endif %}
-                    {% if tag == 'web' %}
-                    <i class="fa fa-globe" aria-hidden="true"></i>
-                    {% endif %}
-                    {% endfor %}
-                    {% endfor %}
+            <div class="row">
+                {% for project in sorted_projects limit:5 %}
+                <div
+                    class="col-xs-12 col-sm-6 col-md-4 animate grid__post load-more-item {% if forloop.index > 3 %}hidden{% endif %}">
+                    <article class="card">
+                        <div class="projects-picture">
+                            {% if project.thumbnail %}
+                            <img class="img" src="{{ site.baseurl }}/assets/images/thumbnails/{{ project.thumbnail }}"
+                                alt="{{ post.thumbnail }}" />
+                            {% else %}
+                            <img class="img" src="{{ site.baseurl }}/assets/images/thumbnails/content.png"
+                                alt="content.png" />
+                            {% endif %}
 
+                            {% if project.platforms %}
+                            <div class="date-box">
+                                {% for tag in project.platforms %}
+                                <span class="date-text">
+                                    {{ tag }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
 
+                        </div>
+                        <div class="item-content">
+                            {% if project.tags %}
+                            <div class="tags">
+                                {% for tag in project.tags %}
+                                <a class="tags-link" href="" alt="Read - {{ tag.title }}" target="_blank">{{ tag }}</a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <h3 class="title">{{ project.title }}</h3>
+                            <p class="summary">
+                                {% if project.excerpt_separator %}
+                                {{ project.excerpt | strip_html }}
+                                {% else %}
+                                {{ project.description }}
+                                {% endif %}
+                            </p>
+                            <div class="button-links">
+                                {% if project.web %}
+                                {% endif %}
+                                {% if project.github %}
+                                <a class="github" href="{{ project.github }}" alt="Github - {{ project.github }}"
+                                    target="_blank"><i class="fa fa-github-square"></i> GitHub</a>
+                                {% endif %}
+                                {% if project.youtube %}
+                                <a class="youtube" href="{{ project.youtube }}" target="_blank"><i
+                                        class="fa fa-youtube-play"></i>
+                                    YouTube</a>
+                                {% endif %}
+                                {% if project.chrome %}
+                                <a class="globe" href="{{ project.chrome }}" target="_blank"><i class="fa fa-globe"></i>
+                                    Chrome Store</a>
+                                {% endif %}
+                                {% if project.playStore %}
+                                <a class="playStore" href="{{ project.playStore }}" target="_blank"><i
+                                        class="fa fa-android"></i>
+                                    Play Store</a>
+                                {% endif %}
+                                {% if project.appStore %}
+                                <a class="appStore" href="{{ project.appStore }}" target="_blank"><i
+                                        class="fa fa-apple"></i>
+                                    App Store</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </article>
                 </div>
-                <p class="summary">
-                    {{ project.description }}
-                </p>
-                <div class="button-links">
-                    {% if project.web %}
-                    {% endif %}
-                    {% if project.github %}
-                    <a class="github" href="{{ project.github }}" alt="Github - {{ project.github }}" target="_blank"><i
-                            class="fa fa-github-square"></i> GitHub</a>
-                    {% endif %}
-                    {% if project.youtube %}
-                    <a class="youtube" href="{{ project.youtube }}" target="_blank"><i class="fa fa-youtube-play"></i>
-                        YouTube</a>
-                    {% endif %}
-                    {% if project.chrome %}
-                    <a class="globe" href="{{ project.chrome }}" target="_blank"><i class="fa fa-globe"></i>
-                        Chrome Store</a>
-                    {% endif %}
-                    {% if project.playStore %}
-                    <a class="playStore" href="{{ project.playStore }}" target="_blank"><i class="fa fa-android"></i>
-                        Play Store</a>
-                    {% endif %}
-                    {% if project.appStore %}
-                    <a class="appStore" href="{{ project.appStore }}" target="_blank"><i class="fa fa-apple"></i>
-                        App Store</a>
-                    {% endif %}
-                    
-                </div>
+                {% endfor %}
             </div>
-            <!-- //item -->
-            {% endfor %}
+            <div class="load-more-wrapper" style="text-align:center; margin-top:20px;">
+                <button id="loadMoreBtnProject">Load More</button>
+            </div>
         </div>
         <!--//content-->
     </div>
     <!--//section-inner-->
 </section>
 <!--//section-->
+
+<script>
+    document.getElementById('loadMoreBtnProject').addEventListener('click', function () {
+        var hiddenItems = document.querySelectorAll('.load-more-item.hidden');
+        var count = 0;
+
+        hiddenItems.forEach(function (item) {
+            if (count < 3) { // Her tıklamada 3 öğe göster
+                item.classList.remove('hidden');
+
+                // Kısa bir gecikme ile fade-in efekti ekleyelim
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, 100 * count);
+
+                count++;
+            }
+        });
+
+        if (document.querySelectorAll('.load-more-item.hidden').length === 0) {
+            document.getElementById('loadMoreBtnProject').style.display = 'none';
+        }
+    });
+</script>

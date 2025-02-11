@@ -11,12 +11,12 @@
 /* ======= Base ======= */
 
 body {
-    font-family: 'Exo 2', sans-serif;
+    font-family: "Barlow", serif;
     /*font-family: "Work Sans", sans-serif;*/
     font-optical-sizing: auto;
     color: #ffffff;
-    background: #ffe2c4;
-    font-size: 16px;
+    background: #fff4f4;
+    font-size: 24px;
 }
 
 pre {
@@ -27,7 +27,6 @@ pre {
 }
 
 article {
-    padding: 20px;
     color: #000000;
 }
 
@@ -38,6 +37,7 @@ h4,
 h5,
 h6 {
     color: black;
+    margin-top: 10px;
 }
 
 a {
@@ -145,6 +145,30 @@ a.dotted-link:hover {
     overflow: hidden;
 }
 
+.marquee-blog {
+    border-style: solid none;
+    border-width: 3px 0 4px 0px;
+    border-color: black;
+    background-color: #ffffff;
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    display: flex;
+    overflow: hidden;
+}
+
+.marquee-projects {
+    border-style: solid none;
+    border-width: 3px 0 4px 0px;
+    border-color: black;
+    background-color: rgb(135, 206, 235);
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    display: flex;
+    overflow: hidden;
+}
+
 .marquee-content {
     letter-spacing: .5px;
     text-transform: uppercase;
@@ -158,6 +182,19 @@ a.dotted-link:hover {
     display: flex;
 }
 
+.marquee-content-big {
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 8px;
+    font-size: 34px;
+    font-weight: 400;
+    /* line-height: 40px; */
+    display: flex;
+}
+
 .marquee-text-item {
     margin-right: 12px;
     color: #000000;
@@ -165,7 +202,8 @@ a.dotted-link:hover {
 
 .marquee-img-item {
     width: 18px;
-    height: 18px;
+    height: 100%;
+    color: #000000;
 }
 
 @keyframes scroll {
@@ -182,20 +220,65 @@ a.dotted-link:hover {
     animation: scroll 10s linear infinite;
 }
 
+.marquee-content-big {
+    animation: scroll 10s linear infinite;
+}
+
 .marquee-banner:hover .marquee-content {
     animation-play-state: paused;
 }
 
+.marquee-banner:hover .marquee-content-big {
+    animation-play-state: paused;
+}
+
+
 /* ======= Header ======= */
 
 .header {
-    background-color: rgba(231, 229, 229, 0.1);
-    min-height: 110vh;
+    background-color: #f9f5f2;
+    background: linear-gradient(to right, #ffffff 0%, rgba(249, 245, 242, 0) 100%);
+    min-height: 105vh;
     position: relative;
-    text-align: center;
+    text-align: left;
     color: black;
     vertical-align: middle;
 }
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/images/background/headerAndroidSpace2.webp') center/cover no-repeat;
+    opacity: 1;
+    z-index: -1;
+}
+
+.header .landing {
+    display: flex;
+}
+
+.header .content-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.header .content-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .content-right img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
 
 .header .highlight {
     border: 2px dashed #ff4911;
@@ -204,9 +287,9 @@ a.dotted-link:hover {
 
 .header .vertical-center {
     position: absolute;
-    top: 50%;
-    left: 12%;
-    right: 12%;
+    top: 55%;
+    left: 20%;
+    right: 20%;
     -ms-transform: translate(0%, -60%);
     transform: translate(0%, -60%);
     animation: hide-scroll 1.4s backwards;
@@ -217,60 +300,64 @@ a.dotted-link:hover {
     font-weight: bold;
 }
 
-.header .profile-image-container {
-    position: relative;
+.header .profile {
     display: flex;
-    width: 20%;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
 }
 
-.header .profile-image {
-    width: 100%;
-    z-index: 1;
+.header .profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.header .test1 {
-    position: absolute;
-    bottom: 0px;
-    top: -30px;
-    left: -25%;
-    width: 140%;
-    z-index: 2;
+.header .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
-.header .test2 {
-    position: absolute;
-    bottom: 10px;
-    right: -30%;
-    width: 80%;
-    z-index: 3;
+.header .profile-name {
+    font-size: 20px;
 }
 
-.header .name {
-    color: #303030;
-    font-size: 22px;
-    margin-bottom: -4px;
-    margin-top: 20px;
-    letter-spacing: 3px;
+.header .profile-job {
+    font-size: 20px;
 }
 
-.header .desc {
-    color: #000000;
-    padding: 4px;
-    font-size: 18px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+
+.header .content {
+    width: 542px;
+}
+
+.header .content .title {
+    font-size: 48px;
+    line-height: 1.22;
+}
+
+/* "One Stop Daily News" kısmı büyük ve kalın */
+.header .content .title .bold-part {
     font-weight: bold;
-
 }
 
-.header .desc2 {
-    text-shadow: 1px 1px #00000017;
-    color: #303030;
-    font-size: 14px;
-    margin-bottom: 35px;
+/* ", Article, Inspiration." kısmı italic ve ince */
+.header .content .title .italic-part {
+    font-family: "Old Standard TT", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.header .content .desc {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
 .header .headerresume-links {
@@ -326,10 +413,19 @@ a.dotted-link:hover {
 
 }
 
+.header .mouse-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
 header .mouseText {
     padding: 5px;
     font-size: 12px;
     margin-top: 16px;
+    text-align: center;
 }
 
 header .mouse {
@@ -339,7 +435,7 @@ header .mouse {
     border-radius: 60px;
     position: relative;
     margin-top: 50px;
-    margin-left: auto;
+        margin-left: auto;
     margin-right: auto;
 }
 
@@ -377,7 +473,9 @@ header .mouse::before {
 
 /* ======= Sections ======= */
 
-.sections-wrapper {
+.sections-wrapper.blog-section {
+    background-color: #ff1b1b;
+    /* üst bölüm için renk */
     padding-top: 10px;
     padding-bottom: 60px;
 }
@@ -587,6 +685,10 @@ header .mouse::before {
 
 /* ======= Blog Sections ======= */
 
+.blogs .hidden {
+    display: none;
+}
+
 section.blogs.section {
     margin-bottom: 20px;
     border-radius: 10px;
@@ -599,22 +701,24 @@ section.blogs.section {
 }
 
 .blogs .header-container {
-
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border-bottom: 1px solid black;
-    padding-bottom: 4px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    /* border-bottom: 1px solid black; */
+    color: black;
 }
 
 .blogs .heading {
     margin: 0;
-    border-radius: 0% 10% 10% 0% / 10% 50% 52% 10%;
-    background-color: #91a8ed;
-    padding: 4px;
-    padding-right: 10px
+    margin-bottom: 0;
+    font-size: 44px;
+}
+
+.blogs .description {
+    /* max-width: 760px; */
+    margin-bottom: 0;
+    font-size: 26px;
+    line-height: 1.45;
+    color: #778492;
 }
 
 .blogs .seeall {
@@ -623,66 +727,167 @@ section.blogs.section {
     padding: 4px;
 }
 
-.blogs .item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding-right: 8px;
-    padding-left: 8px;
-    margin-top: 12px;
-    position: relative;
-    border-bottom: 1px solid black;
-    color: black;
-    font-size: 14px;
-    align-items: stretch;
+/* Blog içeriği */
+.blogs .col-4 {
+    width: calc(4 / 12* 100%);
 }
 
-.blogs .blog-picture {
-    flex: 0 0 auto;
-    width: 250px;
+.blogs .col {
+    padding-left: 16px;
     padding-right: 16px;
-    padding-bottom: 16px;
 }
 
-.blogs .item-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.blogs .blog-img {
-    height: 100%;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 15px;
-    box-shadow: 3px 3px black;
-}
-
-.blogs .item .title {
-    display: inline-block;
+/* Kartlar */
+.blogs .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 16px;
     margin-top: 8px;
-    font-weight: bolder;
-    font-size: 20px;
+    border: 1px solid #000;
+    border-width: 1px 4px 4px 1px;
 }
 
-.blogs .item .author {
-    width: max-content;
-    margin-top: -10px;
-    border-radius: 10px;
-
-    padding: 2px 6px 2px 6px;
-    background-color: #bafca2;
+.blogs .animate {
+    animation: animateElement 0.75s cubic-bezier(0.3, 0.45, 0.45, 0.95);
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    transition: transform 0.15s;
 }
 
-.blogs .divider {
-    border-top: 1px solid rgb(255, 168, 82);
-    border-radius: 5px;
+@keyframes animateElement {
+    0% {
+        transform: scale(1) translateY(0);
+    }
 
+    50% {
+        transform: scale(1.05) translateY(-10px);
+        /* Resmi biraz büyüt ve yukarı kaydır */
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        /* Son haline dön */
+    }
+}
+
+.blogs .animate img {
+    transition: transform 0.5s ease;
+}
+
+.blogs .animate:hover img {
+    transform: scale(1.05);
+    /* Resmi büyütme */
+}
+
+.blogs .animate:hover {
+    transform: translateY(-10px);
+    /* Kartı biraz yukarı kaydır */
+}
+
+/* Resim alanı */
+.blogs .blog-picture {
+    position: relative;
+    transform: translate(0);
+    display: block;
+    min-height: 220px;
+    aspect-ratio: 3 / 2;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.blogs .blog-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.blogs .date-box {
+
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    left: 16px;
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    border-radius: 4px;
+    color: black;
+    background: white;
+    pointer-events: none;
+
+}
+
+/* İçerik */
+.blogs .item-content {
+    will-change: transform;
+    padding: 16px 28px 28px 28px;
+    background-color: white;
+}
+
+.blogs .item-content .title {
+    font-size: 22px;
+    /* font-weight: bold; */
+    line-height: 1.22;
+    /* margin: 8px 0; */
 }
 
 .blogs .summary {
-    margin-top: 5px;
+    display: -webkit-box;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-y: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: var(--text-second-color);
 }
+
+/* Buton */
+
+/* Load More Butonunun Stili */
+.load-more-wrapper button {
+    background-color: #ffffff;
+    color: black;
+    padding: 8px 16px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
+}
+
+/* Hover efekti */
+.load-more-wrapper button:hover {
+    background-color: #e6b834;
+    transform: scale(1.05);
+}
+
+/* Animasyon: Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Yüklenen öğeye animasyon uygulamak için sınıf */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
 
 .blogs .button-links {
     margin-top: 16px;
@@ -705,91 +910,536 @@ section.blogs.section {
 }
 
 .blogs .button-links a:hover {
-    opacity: 50%;
+    background-color: #f7cb457e;
 }
 
+/* Etiketler */
 .blogs .tags {
-    color: black;
-    font-weight: 300;
-    font-size: 14px;
-    cursor: pointer;
+    font-size: 12px;
     text-align: left;
-    margin-top: 5px;
 }
 
-.blogs .tags a {
-    background-color: #0dcfff;
-    padding: 5px;
-    color: black;
+.blogs .tags .tags-link {
+    background-color: #FF6552;
+    color: white;
+    font-weight: 500;
     margin-right: 2px;
-    border-radius: 8px;
-    border: 1px solid black;
-    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    display: inline-block;
+    padding: 2px 12px;
+    border: 2px solid #000;
+    border-width: 1px 3px 3px 1px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
 }
 
-.blogs .tags a:hover {
+.blogs .tags .tags-link:hover {
     opacity: 50%;
+}
+
+.blogs .item-content .title .card-link {
+    color: black;
+    font-weight: 500;
+}
+
+.blogs .item-content .summary .card-link {
+    color: black;
+    font-weight: normal;
+}
+
+.blogs .card-link:hover {
+    text-decoration: none;
+}
+
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .blogs .content {
+        justify-content: center;
+        /* Tabletlerde ortala */
+    }
+
+    .blogs .item {
+        flex: 1 1 300px;
+        max-width: 320px;
+    }
 }
 
 @media (max-width: 768px) {
-    .blogs .item {
-        flex-direction: column;
-    }
-
-    .blogs .blog-picture {
-        width: 100%;
-        height: 270px;
-        overflow: hidden;
-        padding-right: 0;
-        padding-bottom: 16px;
-    }
-
-    .blogs .blog-picture img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-    }
-
     .blogs .content {
+        flex-direction: row;
+        justify-content: center;
+        /* Mobilde ortala */
+    }
+
+    .blogs .item {
         width: 100%;
+        max-width: 320px;
     }
 }
 
 /* ======= Projects Sections ======= */
 
-.projects .section-inner {
-    background: #87ceeb;
+.blogs .hidden {
+    display: none;
 }
 
-.projects .content {
-    border: 2px dashed black;
+section.blogs.section {
+    margin-bottom: 20px;
     border-radius: 10px;
-    padding-left: 5px;
-    padding-right: 8px;
-    padding-top: 10px;
+    border: none;
+    box-shadow: none;
 }
 
-.projects .item {
-    padding-right: 8px;
-    padding-left: 8px;
-    margin-bottom: 12px;
-    position: relative;
+.blogs .section-inner {
+    background: none;
+}
 
+.blogs .header-container {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    /* border-bottom: 1px solid black; */
+    color: black;
+}
+
+.blogs .heading {
+    margin: 0;
+    margin-bottom: 0;
+    font-size: 44px;
+}
+
+.blogs .description {
+    /* max-width: 760px; */
+    margin-bottom: 0;
+    font-size: 26px;
+    line-height: 1.45;
+    color: #778492;
+}
+
+.blogs .seeall {
+    font-size: 24px;
+    margin: 0;
+    padding: 4px;
+}
+
+/* Blog içeriği */
+.blogs .col-4 {
+    width: calc(4 / 12* 100%);
+}
+
+.blogs .col {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Kartlar */
+.blogs .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    border: 1px solid #000;
+    border-width: 1px 4px 4px 1px;
+}
+
+.blogs .animate {
+    animation: animateElement 0.75s cubic-bezier(0.3, 0.45, 0.45, 0.95);
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    transition: transform 0.15s;
+}
+
+@keyframes animateElement {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.05) translateY(-10px);
+        /* Resmi biraz büyüt ve yukarı kaydır */
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        /* Son haline dön */
+    }
+}
+
+.blogs .animate img {
+    transition: transform 0.5s ease;
+}
+
+.blogs .animate:hover img {
+    transform: scale(1.05);
+    /* Resmi büyütme */
+}
+
+.blogs .animate:hover {
+    transform: translateY(-10px);
+    /* Kartı biraz yukarı kaydır */
+}
+
+/* Resim alanı */
+.blogs .blog-picture {
+    position: relative;
+    transform: translate(0);
+    display: block;
+    min-height: 220px;
+    aspect-ratio: 3 / 2;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.blogs .blog-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.blogs .date-box {
+
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    left: 16px;
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    border-radius: 4px;
+    color: black;
+    background: white;
+    pointer-events: none;
+
+}
+
+/* İçerik */
+.blogs .item-content {
+    will-change: transform;
+    padding: 16px 28px 28px 28px;
+    background-color: white;
+}
+
+.blogs .item-content .title {
+    font-size: 22px;
+    /* font-weight: bold; */
+    line-height: 1.22;
+    /* margin: 8px 0; */
+}
+
+.blogs .summary {
+    display: -webkit-box;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-y: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: var(--text-second-color);
+}
+
+/* Buton */
+
+/* Load More Butonunun Stili */
+.load-more-wrapper button {
+    background-color: #ffffff;
+    color: black;
+    padding: 8px 16px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
+}
+
+/* Hover efekti */
+.load-more-wrapper button:hover {
+    background-color: #e6b834;
+    transform: scale(1.05);
+}
+
+/* Animasyon: Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Yüklenen öğeye animasyon uygulamak için sınıf */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+
+.blogs .button-links {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.blogs .button-links a {
+    background-color: #f7cb45;
+    color: black;
+    padding: 5px;
+    margin-left: 2px;
     border-radius: 8px;
     border: 1px solid black;
-    box-shadow: 3px 3px rgba(0, 0, 0, 1);
-    background: #ffffff;
-
-    color: black;
-    font-size: 14px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
 }
 
-.projects .item .title {
+.blogs .button-links a:hover {
+    background-color: #f7cb457e;
+}
+
+/* Etiketler */
+.blogs .tags {
+    font-size: 12px;
+    text-align: left;
+}
+
+.blogs .tags .tags-link {
+    background-color: #FF6552;
+    color: white;
+    font-weight: 500;
+    margin-right: 2px;
     display: inline-block;
+    padding: 2px 12px;
+    border: 2px solid #000;
+    border-width: 1px 3px 3px 1px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.blogs .tags .tags-link:hover {
+    opacity: 50%;
+}
+
+.blogs .item-content .title .card-link {
+    color: black;
+    font-weight: 500;
+}
+
+.blogs .item-content .summary .card-link {
+    color: black;
+    font-weight: normal;
+}
+
+.blogs .card-link:hover {
+    text-decoration: none;
+}
+
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .blogs .content {
+        justify-content: center;
+        /* Tabletlerde ortala */
+    }
+
+    .blogs .item {
+        flex: 1 1 300px;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blogs .content {
+        flex-direction: row;
+        justify-content: center;
+        /* Mobilde ortala */
+    }
+
+    .blogs .item {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* ======= Projects Sections ======= */
+.projects .hidden {
+    display: none;
+}
+
+section.projects.section {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+.projects .section-inner {
+    background: none;
+}
+
+.projects .header-container {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    /* border-bottom: 1px solid black; */
+    color: black;
+}
+
+.projects .heading {
+    margin: 0;
+    margin-bottom: 0;
+    font-size: 44px;
+}
+
+.projects .description {
+    /* max-width: 760px; */
+    margin-bottom: 0;
+    font-size: 26px;
+    line-height: 1.45;
+    color: #778492;
+}
+
+.projects .seeall {
+    font-size: 24px;
+    margin: 0;
+    padding: 4px;
+}
+
+/* Blog içeriği */
+.projects .col-4 {
+    width: calc(4 / 12* 100%);
+}
+
+.projects .col {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.projects .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 16px;
     margin-top: 8px;
-    font-weight: bolder;
-    font-size: 20px;
+    border: 1px solid #000;
+    border-width: 1px 4px 4px 1px;
+}
+
+.projects .animate {
+    animation: animateElement 0.75s cubic-bezier(0.3, 0.45, 0.45, 0.95);
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    transition: transform 0.15s;
+}
+
+@keyframes animateElement {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.05) translateY(-10px);
+        /* Resmi biraz büyüt ve yukarı kaydır */
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        /* Son haline dön */
+    }
+}
+
+.projects .animate img {
+    transition: transform 0.5s ease;
+}
+
+.projects .animate:hover img {
+    transform: scale(1.05);
+    /* Resmi büyütme */
+}
+
+.projects .animate:hover {
+    transform: translateY(-10px);
+    /* Kartı biraz yukarı kaydır */
+}
+
+/* Resim alanı */
+.projects .projects-picture {
+    position: relative;
+    transform: translate(0);
+    display: block;
+    min-height: 220px;
+    aspect-ratio: 3 / 2;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.projects .projects-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.projects .date-box {
+
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    left: 16px;
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    border-radius: 4px;
+    color: black;
+    background: white;
+    pointer-events: none;
+
+}
+
+.projects .item-content {
+    will-change: transform;
+    padding: 8px 8px 4px 16px;
+    background-color: white;
+}
+
+.projects .item-content .title {
+    font-size: 22px;
+    /* font-weight: bold; */
+    line-height: 1.22;
+    /* margin: 8px 0; */
+}
+
+
+.projects .summary {
+    display: -webkit-box;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-y: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: var(--text-second-color);
+}
+
+.projects .tags {
+    font-size: 12px;
+    text-align: left;
 }
 
 .projects .button-links {
@@ -800,6 +1450,29 @@ section.blogs.section {
     font-size: 14px;
     cursor: pointer;
     text-align: right;
+}
+.projects .tags {
+    font-size: 12px;
+    text-align: left;
+}
+
+.projects .tags .tags-link {
+    background-color: #2a5cb3;
+    color: white;
+    font-weight: 500;
+    margin-right: 1px;
+    display: inline-block;
+    padding: 2px 8px;
+    border: 2px solid #000;
+    border-width: 1px 3px 3px 1px;
+    border-radius: 50px;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 1px; */
+    transition: 0.3s;
+}
+
+.projects .tags .tags-link:hover {
+    opacity: 50%;
 }
 
 .projects .button-links a {
@@ -824,14 +1497,17 @@ section.blogs.section {
     background-color: #ff4911;
     color: white;
 }
+
 .projects .button-links .globe {
     background-color: #4285f4;
     color: white;
 }
+
 .projects .button-links .playStore {
     background-color: #A4C639;
     color: rgb(0, 90, 95);
 }
+
 .projects .button-links .appStore {
     background-color: #ffffff;
     color: black;
@@ -843,24 +1519,43 @@ section.blogs.section {
 
 }
 
-.projects .summary {
-    margin-top: 5px;
+/* Load More Butonunun Stili */
+.load-more-wrapper button {
+    background-color: #ffffff;
+    color: black;
+    padding: 8px 16px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
 }
 
-.projects .logo {
-    display: inline-block;
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    font-size: 20px;
-    left: -13px;
-    color: black;
-    text-align: center;
-    padding: unset;
-    text-align: center;
-    vertical-align: bottom;
-    line-height: 25px;
-    color: #FF8C00;
+/* Hover efekti */
+.load-more-wrapper button:hover {
+    background-color: #e6b834;
+    transform: scale(1.05);
+}
+
+/* Animasyon: Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Yüklenen öğeye animasyon uygulamak için sınıf */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
 }
 
 /* ======= Git Section ======= */
@@ -1119,19 +1814,20 @@ section.blogs.section {
 /* Extra small devices (phones, less than 768px) */
 
 @media (max-width: 767px) {
+
     .header {
+        background: none;
         text-align: center;
     }
 
-    .header .profile-image-container {
-        float: none !important;
-        margin: 0 auto;
-        width: 50%;
+    .header::before {
+        background: url('/assets/images/background/headerAndroidSpace1.webp') center/cover no-repeat;
+        opacity: 0.3;
     }
 
-    .header .profile-content {
-        float: none !important;
-        text-align: center;
+    .header .vertical-center {
+        left: 12%;
+        right: 12%;
     }
 
     .header .btn {
@@ -1139,16 +1835,69 @@ section.blogs.section {
         float: none !important;
     }
 
-    .project-image {
-        margin-bottom: 15px;
+    .header .profile {
+        width: fit-content;
+        margin: 0 auto 0px auto;
     }
-    .projects .item {
-        font-size: 12px;
+
+    .header .profile-name {
+        font-size: 16px;
     }
     
-    .projects .item .title {
-        font-size: 15px;
+    .header .profile-job {
+        font-size: 16px;
     }
+
+
+    .header .content {
+        width: auto;
+    }
+
+    .header .content .title {
+        font-size: 32px;
+        line-height: 1.22;
+    }
+
+    .header .content .desc {
+        font-size: 14px;
+
+    }
+
+    .header .content-right {
+        margin-top: 20px;
+        display: none;
+    }
+
+    .header .mouse-container {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header .headerresume-links a {
+        font-size: 18px;
+    }
+
+    .header .mouse{
+        margin-top: 40px;
+    }
+
+    .blogs .heading {
+        font-size: 24px;
+    }
+    
+    .blogs .description {
+        font-size: 16px;
+    }
+
+    .projects .heading {
+        font-size: 24px;
+    }
+    
+    .projects .description {
+        font-size: 16px;
+    }
+
     .projects .button-links {
         font-size: 12px;
     }
@@ -1169,7 +1918,7 @@ section.blogs.section {
 @media (min-width: 1400px) {
 
     .container {
-        width: 1360px;
+        width: 1200px;
     }
 }
 

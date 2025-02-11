@@ -30,7 +30,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 google_analytics: G-7WW2625SN6
-paginate: 5 # Sayfa başına gösterilecek yazı sayısı
+paginate: 6
 paginate_path: "/page:num/"
 
 # Build settings
