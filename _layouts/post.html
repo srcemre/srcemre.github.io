@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+    {%- include head.html -%}
+<body>
+    <!-- TODO: Add the menu.html include -->
+
+    <div class="container sections-wrapper">
+        <div class="row">
+            <div class="primary col-sm-12">
+                <main class="page-content" aria-label="Content">
+                    <div class="wrapper" style="color: black;">
+                      {{ content }}
+                    </div>
+                  </main>
+            </div>
+        </div>
+    </div>
+    {%- include footer.html -%}
+    {% include google-analytics.html %}
+</body>
+
+</html>
