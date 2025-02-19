@@ -1,7 +1,7 @@
 <section class="projects section" id="project">
     <div class="section-inner">
         <div class="header-container">
-            <!-- <h1 class="heading">Projects Showcase</h1> -->
+            <h1 class="heading">Projects</h1>
             <p class="description">I present my top-tier projects, meticulously crafted with unwavering passion,
                 simplicity, boundless creativity, and unparalleled attention to detail.</p>
             <!--<h2 class="seeall"><a href="">See All</a></h2>-->
@@ -22,7 +22,7 @@
                                 alt="content.png" />
                             {% endif %}
 
-                            {% if project.platforms %}
+                            <!-- {% if project.platforms %}
                             <div class="date-box">
                                 {% for tag in project.platforms %}
                                 <span class="date-text">
@@ -30,17 +30,17 @@
                                 </span>
                                 {% endfor %}
                             </div>
-                            {% endif %}
+                            {% endif %} -->
 
                         </div>
                         <div class="item-content">
-                            {% if project.tags %}
+                            <!-- {% if project.tags %}
                             <div class="tags">
                                 {% for tag in project.tags %}
                                 <a class="tags-link" href="" alt="Read - {{ tag.title }}" target="_blank">{{ tag }}</a>
                                 {% endfor %}
                             </div>
-                            {% endif %}
+                            {% endif %} -->
                             <h3 class="title">{{ project.title }}</h3>
                             <p class="summary">
                                 {% if project.excerpt_separator %}
@@ -82,9 +82,13 @@
                 </div>
                 {% endfor %}
             </div>
+
+            {% if sorted_projects.size > 4 %}
             <div class="load-more-wrapper" style="text-align:center; margin-top:20px;">
                 <button id="loadMoreBtnProject">Load More</button>
             </div>
+            {% endif %}
+    
         </div>
         <!--//content-->
     </div>

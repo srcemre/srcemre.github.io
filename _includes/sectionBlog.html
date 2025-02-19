@@ -1,7 +1,7 @@
 <section class="blogs section" id="blog">
     <div class="section-inner">
         <div class="header-container">
-            <!-- <h1 class="heading">Blog & Resources</h1> -->
+            <h1 class="heading">Blog & Resources</h1>
             <p class="description"><strong>"A programmer is never late, nor is he early, he arrives precisely when he
                     means to." – Gandalf.</strong><br> Welcome to my blog, where I write about tech, software, and
                 random adventures!</p>
@@ -12,7 +12,7 @@
             <div class="row">
                 {% for post in sorted_posts limit:6 %}
                 <div
-                    class="col-lg-4 col-md-6 col-sm-12 animate grid__post load-more-item {% if forloop.index > 3 %}hidden{% endif %}">
+                    class="col-lg-4 col-md-6 col-sm-12 animate grid__post load-more-item {% if forloop.index >= 3 %} hidden {% endif %}">
                     <article class="card">
                         <a href="{{ post.url }}" class="card-link">
                             <div class="blog-picture">
@@ -55,9 +55,11 @@
                 </div>
                 {% endfor %}
             </div>
+            {% if sorted_posts.size > 3 %}
             <div class="load-more-wrapper" style="text-align:center; margin-top:20px;">
                 <button id="loadMoreBtn">Load More</button>
             </div>
+            {% endif %}
         </div>
         <!--//content-->
     </div>
@@ -71,10 +73,9 @@
         var count = 0;
 
         hiddenItems.forEach(function (item) {
-            if (count < 3) { // Her tıklamada 3 öğe göster
+            if (count < 3) {
                 item.classList.remove('hidden');
 
-                // Kısa bir gecikme ile fade-in efekti ekleyelim
                 setTimeout(() => {
                     item.classList.add('fade-in');
                 }, 100 * count);
