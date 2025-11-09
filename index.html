@@ -1,0 +1,123 @@
+---
+layout: default
+---
+
+<canvas id="starfield"></canvas>
+<div class="space-background">
+  <!-- Kartı ölçeklemek için sarmalayıcı -->
+  <div id="card-scaler" class="card-scaler">
+    <!-- Kartın kendisi (Animasyon ve Yamukluk burada kalır) -->
+    <div class="ufo-license-card floating-card">
+      <!-- Başlık: UFO DRIVERS LICENSE -->
+      <div class="license-header-text">
+        <div class="header-main-title">GALACTIC</div>
+        <div class="header-license-tag">BUSINESS CARD</div>
+      </div>
+
+      <!-- Lisans Bilgileri Üst Kısım -->
+      <div class="license-header-details header-details-row">
+        <!-- LICENSE NO (Yeni Alan) -->
+        <div class="detail-item">
+          <span class="label">LICENSE NO</span>
+          <span class="value">0xC0FFEE</span>
+        </div>
+
+        <!-- REGISTRATION NO (Eski ID NO) -->
+        <div class="detail-item">
+          <span class="label">REGISTRATION NO</span>
+          <span class="value" id="id-no">UUID-A42-H2G2</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">EXPIRES</span>
+          <span class="value">U-4231-Δ-42</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">CLASS</span>
+          <span class="value">INVADER</span>
+        </div>
+      </div>
+
+      <!-- Ana İçerik ve Fotoğraf -->
+      <div class="license-main-content">
+        <div class="photo-container">
+          <div class="alien-photo">
+            <img src="{{ site.baseurl }}/assets/images/avatar/avatar.webp" alt="Emre Avatar" class="photo">
+          </div>
+        </div>
+
+        <div class="details-text">
+          <!-- İsim Kapsayıcı (Pembe Bant) -->
+          <div class="name-container">
+            <div class="name">EMRE SARAÇ</div>
+          </div>
+
+          <div class="travel-type" id="travel-type-container">
+            SOFTWARE ENGINEER
+          </div>
+
+          <!-- Core Skills Alanı Geri Geldi -->
+          <div class="address-container">
+            <div class="address-label">CORE SKILLS</div>
+            <div class="address-value">
+              FLUTTER / DART  <br>
+              ANDROID (KOTLIN) / IOS (SWIFT)
+            </div>
+          </div>
+
+          <div id="interview-result"></div>
+        </div>
+      </div>
+
+      <!-- 1. SATIR: CİNSİYET / KAN GRUBU / NOT / GEZEGEN (Hepsi Sol Tarafta) ve İMZA -->
+      <div class="license-footer-row-top">
+        <!-- SOL KISIM: CİNSİYET, KAN GRUBU, NOT, GEZEGEN -->
+        <div class="detail-item-group">
+          <div class="detail-item compact">
+            <span class="label">SEX</span>
+            <span class="value">M</span>
+          </div>
+          <div class="detail-item compact">
+            <span class="label">BLOOD</span>
+            <span class="value">&lambda;</span>
+          </div>
+          <div class="detail-item compact">
+            <span class="label">RANK</span>
+            <span class="value">A+</span>
+          </div>
+          <!-- BIRTH PLANET Buraya taşındı -->
+          <div class="detail-item compact footer-item">
+            <span class="label">BIRTH PLANET</span>
+            <span class="value">ANDROSONE-7</span>
+          </div>
+        </div>
+
+        <!-- SAĞ KISIM: Sadece İmza -->
+        <div class="right-signature-block">
+          <!-- İmza Alanı -->
+            <img class="signature" src="{{ site.baseurl }}/assets/images/signature.png" alt="Emre Sarac Signature" class="signature-image"/>
+        </div>
+      </div>
+
+      <!-- 2. SATIR: LİNKLER -->
+      <div class="license-footer-row-links">
+        <!-- MAIL -->
+        <div class="detail-item compact">
+          <a href="mailto:e.sarac@outlook.com" class="value link-value" target="_blank">EMAIL</a>
+        </div>
+        <!-- GITHUB -->
+        <div class="detail-item compact">
+          <a href="https://github.com/srcemre" class="value link-value" target="_blank">GITHUB</a>
+        </div>
+        <!-- LINKEDIN -->
+        <div class="detail-item compact">
+          <a href="https://www.linkedin.com/in/saracemre" class="value link-value" target="_blank">LINKEDIN</a>
+        </div>
+        <!-- INSTAGRAM -->
+        <div class="detail-item compact">
+          <a href="https://www.instagram.com/saracemre_" class="value link-value" target="_blank">INSTAGRAM</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

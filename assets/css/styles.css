@@ -1,0 +1,407 @@
+/* --- Renk Paleti --- */
+:root {
+  --color-dark-space: #0d0d1f;
+  --color-card-main: #ce7ceb; /* Ana Mor */
+  --color-card-border: #9b5cb2; /* Koyu Mor/Sınır */
+  --color-name-band: #e5a4ff; /* Neon Pembe/İsim Bandı */
+  --color-photo-frame: #ffe970; /* Neon Sarı */
+  --color-light-text: #fff;
+  --color-dark-text: #330033; /* Koyu Metin */
+
+  /* Yeni: Neon Etkisi İçin Renkler */
+  --color-neon-shadow-1: #ff00ff; /* Parlak Macenta */
+  --color-neon-shadow-2: #00ffff; /* Parlak Camgöbeği */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* scroll'u tamamen kapatır */
+  touch-action: pinch-zoom;
+}
+
+/* Genel Ayarlar ve Font */
+body {
+  position: fixed;
+  overflow: hidden; /* scroll tamamen kapalı */
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--color-dark-text);
+  background-color: var(
+    --color-dark-space
+  ); /* Background rengini doğrudan atadık */
+}
+
+/* --- Yeni: TARANMIŞ EKRAN (SCANLINE) ETKİSİ --- */
+/* Body'nin içindeki bu overlay, tüm ekrana ince çizgiler (scanlines) ekler */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.7; /* Opaklık ayarı */
+}
+
+/* --- Yavaş Hareket Animasyonu (Tilt ve Yüzme) --- */
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px) rotate(-3deg);
+  }
+  50% {
+    transform: translate(0, 15px) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0, 0px) rotate(-3deg);
+  }
+}
+
+.floating-card {
+  animation: floating 4s ease-in-out infinite;
+}
+
+/* --- KART ÖLÇEKLEYİCİ (CARD SCALER) --- */
+.card-scaler {
+  transform-origin: center center;
+  transition: transform 0.2s ease-out;
+  z-index: 1;
+}
+
+/* --- Lisans Kartı --- */
+.ufo-license-card {
+  width: 550px;
+  background-color: var(--color-card-main);
+  border-radius: 15px;
+  /* DEĞİŞİKLİK: Mobil taşmayı azaltmak için padding 20px'ten 15px'e düşürüldü */
+  padding: 15px;
+  /* YENİ: Kartın dışına taşan içeriği (örn. gölge) kesmek için eklendi */
+  overflow: hidden;
+  /* Neon Parlama Etkisi Eklendi */
+  box-shadow: 0 0 15px var(--color-neon-shadow-1),
+    /* İçeriden parlama */ 0 0 40px var(--color-neon-shadow-2),
+    /* Dışarıya güçlü parlama */ 0 0 100px var(--color-neon-shadow-1);
+  border: 5px solid var(--color-card-border);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Kartın üst bandı (Görseldeki pembe bandı taklit ediyor) */
+.ufo-license-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-card-border);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 1;
+}
+
+/* Başlıkta görseldeki gibi "UFO DRIVERS" ve "LICENSE" ayrımını yapalım */
+.license-header-text {
+  position: relative;
+  z-index: 2;
+  margin: -10px 0 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: flex-end;
+  font-family: "Roboto Mono", monospace;
+}
+.header-main-title {
+  font-size: 2em;
+  font-weight: 900;
+  color: var(--color-light-text);
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-right: 10px;
+  /* Hafif metin parlaması */
+  text-shadow: 0 0 5px var(--color-neon-shadow-1);
+}
+.header-license-tag {
+  font-size: 2em;
+  font-weight: 900;
+  color: var(--color-card-main);
+  background-color: var(--color-light-text);
+  padding: 0 10px;
+  border-radius: 5px;
+  line-height: 1;
+  transform: skewX(-10deg);
+  white-space: nowrap;
+}
+
+/* --- Detay Stilleri --- */
+.detail-item {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.license-header-details {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2px;
+  gap: 10px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-dark-text);
+  text-transform: uppercase;
+}
+
+.header-details-row .label {
+  color: var(--color-light-text);
+}
+
+.value {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  /* Hafif metin parlaması */
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Link değerleri */
+.value.link-value {
+  text-decoration: none;
+  color: var(--color-dark-text);
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.value.link-value:hover {
+  color: var(--color-neon-shadow-2); /* Hover'da camgöbeği parlaması */
+  text-shadow: 0 0 5px var(--color-neon-shadow-2);
+}
+
+/* --- Ana İçerik --- */
+.license-main-content {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.photo-container {
+  width: 100px;
+  height: 120px;
+  background-color: var(--color-photo-frame);
+  border: 3px solid var(--color-dark-text);
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--color-photo-frame);
+}
+
+.alien-photo {
+  background-color: #55c7a3;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden; /* önemli */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alien-photo img.photo {
+  height: 100%;        /* kutunun yüksekliğine göre ölçekler */
+  width: auto;         /* oranı korur */
+  object-fit: cover;   /* taşma olursa kırpar */
+  border-radius: 3px;
+}
+
+.details-text {
+  flex-grow: 1;
+  margin-top: -8px;
+}
+
+/* İsim Kapsayıcı: Pembe bant görünümü */
+.name-container {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 9px;
+  background-color: var(--color-name-band); /* Pembe bant */
+  padding: 3px 5px;
+  border-radius: 3px;
+  /* Bant üzerinde neon gölge */
+  box-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+  width: 65%;
+}
+
+.name {
+  font-size: 1.8em;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-dark-text);
+  letter-spacing: 1px;
+  white-space: nowrap;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Meslek/Unvan (SOFTWARE ENGINEER) */
+.travel-type {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 5px;
+  white-space: nowrap;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Adres Alanı (Şimdi CORE SKILLS oldu) */
+.address-container {
+  padding: 0;
+  border-radius: 0;
+}
+.address-label {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-text);
+  display: block;
+  font-family: "Roboto Mono", monospace;
+}
+.address-value {
+  font-size: 0.8em;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: normal;
+  font-family: "Roboto Mono", monospace;
+}
+
+#interview-result {
+  margin-top: 5px;
+  padding: 0;
+  min-height: 5px;
+}
+
+/* --- ALT DETAYLAR YAPISI (Cinsiyet/Kan Grubu/Not/Gezegen) --- */
+
+/* İmza Bloğu ve Yeni Bilgiler */
+.license-footer-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+
+.detail-item-group {
+  display: flex;
+  gap: 15px; /* Bilgiler arası boşluk */
+}
+
+/* İmza bloğu */
+.right-signature-block {
+  position: relative; /* referans noktası */
+}
+.signature-area {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.signature {
+  position: absolute;
+  bottom: 0px;   /* biraz aşağı taşsın */
+  right: 0px;    /* kartın dışına doğru taşı */
+  width: 185px;    /* imzanın boyutunu buradan kontrol et */
+  height: auto;
+  opacity: 0.9;    /* hafif transparan efekt hoş durur */
+  z-index: 5;      /* yazıların üstünde kalsın */
+  pointer-events: none; /* tıklanabilir alanları engellemesin */
+}
+
+/* Linklerin bulunduğu son satır */
+.license-footer-row-links {
+  padding-top: 8px;
+  border-top: 1px dashed rgba(51, 0, 51, 0.2);
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Başlık, İsim ve Lisans Etiketleri */
+.header-main-title,
+.header-license-tag,
+.name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+/* --- Footer --- */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(13, 13, 31, 0.6);
+  color: var(--color-light-text);
+  font-family: 'VT323', monospace;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9em;
+  z-index: 2;
+  backdrop-filter: blur(3px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-inner {
+  opacity: 0.8;
+}
+
+.site-footer .highlight {
+  color: var(--color-neon-shadow-2);
+  text-shadow: 0 0 5px var(--color-neon-shadow-2);
+}
+
+.site-footer .small {
+  font-size: 0.75em;
+  opacity: 0.6;
+}
+
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* arka planda kalsın */
+  background: radial-gradient(circle at center, #0d0d1f 0%, #000 100%);
+  pointer-events: none;
+}
